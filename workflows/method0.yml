@@ -1,0 +1,27 @@
+name: Method 0 Verification
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  method0:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Compile encoder and decoder
+      run: |
+        gcc encoder.c -o encoder
+        gcc decoder.c -o decoder
+
+    - name: Run Method 0
+      run: |
+        ./encoder 0 Kimberly.bmp R.txt G.txt B.txt dim.txt
+        ./decoder 0 ResKimberly.bmp R.txt G.txt B.txt dim.txt
+
+    - name: Verify by cmp
+      run: |
+        cmp Kimberly.bmp ResKimberly.bmp
