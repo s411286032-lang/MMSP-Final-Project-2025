@@ -98,13 +98,11 @@ This stage verifies that the image data flow is correct before applying any comp
 
 ## Reflection
 
-Through the implementation of Method 0, I gained a deeper understanding of the BMP file format and low-level image data representation.
+Through the implementation of Method 0, I became more familiar with the BMP file format and how image data is stored at a low level.
 
-Although the task does not involve compression, it highlighted the importance of correctly handling pixel order, padding, and file metadata.  
-The debugging process also emphasized that visual correctness does not always imply bit-level equivalence.
+Although this method does not involve any compression algorithms, it helped me realize the importance of correctly handling pixel order, row padding, and file-related metadata. During the debugging process, I also learned that even if two images look the same visually, they may still differ at the byte level.
 
-Completing Method 0 provides a solid and reliable foundation for implementing subsequent methods such as color space conversion and DCT-based JPEG compression.
-
+Completing Method 0 helped me build a solid foundation for the next stages of the project, such as color space conversion and DCT-based JPEG compression.
 
 ## Conclusion
 
