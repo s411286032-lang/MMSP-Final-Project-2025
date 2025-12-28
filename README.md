@@ -66,6 +66,45 @@ Byte-level comparison confirmed that pixel data is correct.
 Therefore, Linux `cmp` is used as the final verification method.
 
 ---
+## Implementation Progress
+
+The overall system follows a simple JPEG-style processing pipeline.  
+In Method 0, only the image I/O and RGB data handling parts are implemented.
+
+**Block Diagram (Method 0)**
+
+BMP Input  
+→ BMP Header Parsing  
+→ Pixel Data Extraction  
+→ RGB Channel Separation  
+→ RGB Text Files (R.txt / G.txt / B.txt)  
+→ RGB Data Reconstruction  
+→ BMP Output  
+
+This stage verifies that the image data flow is correct before applying any compression algorithms.
+
+---
+
+## Work Log
+
+- **Step 1**: Studied the BMP file format, including header structure, pixel storage order, and row padding rules.  
+- **Step 2**: Implemented BMP reading in the encoder and verified correct parsing of pixel data.  
+- **Step 3**: Separated pixel data into R, G, and B channels and stored them in ASCII text files.  
+- **Step 4**: Implemented the decoder to reconstruct pixel data from RGB text files.  
+- **Step 5**: Debugged issues related to bottom-up row order and row padding.  
+- **Step 6**: Verified correctness using Linux `cmp` in GitHub Actions.
+
+---
+
+## Reflection
+
+Through the implementation of Method 0, I gained a deeper understanding of the BMP file format and low-level image data representation.
+
+Although the task does not involve compression, it highlighted the importance of correctly handling pixel order, padding, and file metadata.  
+The debugging process also emphasized that visual correctness does not always imply bit-level equivalence.
+
+Completing Method 0 provides a solid and reliable foundation for implementing subsequent methods such as color space conversion and DCT-based JPEG compression.
+
 
 ## Conclusion
 
